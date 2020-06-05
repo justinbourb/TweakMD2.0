@@ -15,6 +15,104 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        //Helper Functions
+        public string openFileFunc(string pathToFile)
+        {
+            /* Purpose:
+            *  this function will open a file and read it's contents
+            * Paramaters:
+            *  pathToFile: a windows file path
+            * Return Value:
+            *  return the opened files contents as a string
+            */
+            String line;
+            string output = "";
+            try
+            {
+                //Pass the file path and file name to the StreamReader constructor
+                StreamReader file = new StreamReader(pathToFile);
+                //Read the first line of text
+                line = file.ReadLine();
+                //Continue to read until you reach end of file
+                while (line != null)
+                {
+                    output += line;
+                    //Read the next line
+                    line = file.ReadLine();
+                }
+                //close the file
+                file.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            return output;
+        }
+        public string findAndReplaceFunc(string data, string toSearch, string replaceStr)
+        {
+            /* Purpose:
+             *  this function will find and replace part of a string
+             * Paramaters:
+             *  data: a string to be manipulated
+             *  toSearch: a string of the data you want to find
+             *  replaceStr: the text you want to replace the toSearch text with
+             * Return Value:
+             *  returns the modified string
+             */
+            //StringBuilder has a Replace() function built in, strings do not
+            if (data.Length != 0)
+            {
+                StringBuilder builder = new StringBuilder(data);
+                builder.Replace(toSearch, replaceStr);
+                string tempData = builder.ToString();
+                return tempData;
+            }
+            //if no data, return no data
+            return data;
+        }
+
+        public void writeToFile(string pathToFile, string data)
+        {
+            /* Purpose:
+            *  this function will write data to a file
+            * Paramaters:
+            *  pathToFile: a windows file path
+            *  data: the data you wish to write to the file
+            * Return Value:
+            *  none
+            */
+            StreamWriter file = new StreamWriter(pathToFile);
+            file.Write(data);
+            file.Close();
+        }
+
+        public void callAllFileFuncs(string pathToFile, string toSearch, string replaceStr)
+        {
+            /* Purpose:
+           *  this function will call openFileFunc(), findAndReplaceFunc(), writeToFileFunc()
+           * Paramaters:
+           *  pathToFile: a windows file path
+           *  toSearch: a string of the data you want to find
+           *  replaceStr: the text you want to replace the toSearch text with
+           * Return Value:
+           *  none
+           */
+            string fileText;
+            fileText = openFileFunc(pathToFile);
+            string defaultText = fileText;
+            richTextBox1.Text = fileText;
+            string editedText;
+            editedText = findAndReplaceFunc(fileText, toSearch, replaceStr);
+            richTextBox1.AppendText(Environment.NewLine + editedText);
+            richTextBox1.AppendText(Environment.NewLine + "Writing data to the file...");
+            writeToFile(pathToFile, editedText);
+            richTextBox1.AppendText(Environment.NewLine + "New text is:");
+            fileText = openFileFunc(pathToFile);
+            richTextBox1.AppendText(Environment.NewLine + fileText);
+            writeToFile(pathToFile, defaultText);
+        }
+        //Form1
         public Form1()
         {
             InitializeComponent();
@@ -57,21 +155,8 @@ namespace WindowsFormsApp1
                 //check which tweak is used
                 if (tweak == 1)
                 {
-                    
-                    string fileText;
-                    string pathToFile = modDirectory + "\\test.txt";
-                    fileText = openFileFunc(pathToFile);
-                    string defaultText = fileText;
-                    richTextBox1.Text = fileText;
-                    string editedText;
-                    editedText = findAndReplaceFunc(fileText, fileText, "Changing the text of a file.");
-                    richTextBox1.AppendText(Environment.NewLine + editedText);
-                    richTextBox1.AppendText(Environment.NewLine + "Writing data to the file...");
-                    writeToFile(pathToFile, editedText);
-                    richTextBox1.AppendText(Environment.NewLine + "New text is:");
-                    fileText = openFileFunc(pathToFile);
-                    richTextBox1.AppendText(Environment.NewLine + fileText);
-                    writeToFile(pathToFile, defaultText);
+
+                    callAllFileFuncs(modDirectory + "\\test.txt", "Writing text a file.", "Changing the text of a file.");
 
 
                 }
@@ -96,56 +181,10 @@ namespace WindowsFormsApp1
                 }
             }
         }
-        public string openFileFunc(string pathToFile)
-        {
-            //this function will open a file and return it's contents as a string
-            String line;
-            string output = "";
-            try
-            {
-                //Pass the file path and file name to the StreamReader constructor
-                StreamReader file = new StreamReader(pathToFile);
-                //Read the first line of text
-                line = file.ReadLine();
-                //Continue to read until you reach end of file
-                while (line != null)
-                {
-                    output += line;
-                    //Read the next line
-                    line = file.ReadLine();
-                }
-                //close the file
-                file.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-            return output;
-        }
-        public string findAndReplaceFunc(string data, string toSearch, string replaceStr)
-        {
-            //this function will find and replace part of a string
-            //returns the modified string
-            //StringBuilder has a Replace() function built in, strings do not
-            if (data.Length != 0)
-            {
-                StringBuilder builder = new StringBuilder(data);
-                builder.Replace(toSearch, replaceStr);
-                string tempData = builder.ToString();
-                return tempData;
-            }
-            //if no data, return no data
-            return data;
-        }
 
-        public void writeToFile(string pathToFile, string data)
-        { 
-            //this function will write data to a file
-            StreamWriter file = new StreamWriter(pathToFile);
-            file.Write(data);
-            file.Close();
+        private void testTweaksButton_Click(object sender, EventArgs e)
+        {
+            callAllFileFuncs(modDirectory + "\\test.txt", "Writing text a file.", "Changing the text of a file.");
         }
-
     }
 }

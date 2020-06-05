@@ -28,38 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Spawn Rate");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Spawns", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Order Stronghold");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Knighthood Orders", new System.Windows.Forms.TreeNode[] {
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Tweaks", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Spawn Rate");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Spawns", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Order Stronghold");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Knighthood Orders", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Tweaks", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode4});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.selectDirectoryButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.testTweaksButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(13, 58);
             this.treeView1.Name = "treeView1";
-            treeNode6.Name = "Node3";
-            treeNode6.Text = "Spawn Rate";
-            treeNode7.Name = "Node 1";
-            treeNode7.Text = "Spawns";
-            treeNode8.Name = "Node4";
-            treeNode8.Text = "Order Stronghold";
-            treeNode9.Name = "Node2";
-            treeNode9.Text = "Knighthood Orders";
-            treeNode10.Name = "Node0";
-            treeNode10.Text = "Tweaks";
+            treeNode1.Name = "Node3";
+            treeNode1.Text = "Spawn Rate";
+            treeNode2.Name = "Node 1";
+            treeNode2.Text = "Spawns";
+            treeNode3.Name = "Node4";
+            treeNode3.Text = "Order Stronghold";
+            treeNode4.Name = "Node2";
+            treeNode4.Text = "Knighthood Orders";
+            treeNode5.Name = "Node0";
+            treeNode5.Text = "Tweaks";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode5});
             this.treeView1.Size = new System.Drawing.Size(222, 335);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -105,11 +106,23 @@
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Please select your Mod Directory";
             // 
+            // testTweaksButton
+            // 
+            this.testTweaksButton.Location = new System.Drawing.Point(405, 5);
+            this.testTweaksButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.testTweaksButton.Name = "testTweaksButton";
+            this.testTweaksButton.Size = new System.Drawing.Size(178, 35);
+            this.testTweaksButton.TabIndex = 5;
+            this.testTweaksButton.Text = "test tweaks";
+            this.testTweaksButton.UseVisualStyleBackColor = true;
+            this.testTweaksButton.Click += new System.EventHandler(this.testTweaksButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(771, 415);
+            this.Controls.Add(this.testTweaksButton);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.selectDirectoryButton);
             this.Controls.Add(this.checkBox1);
@@ -129,6 +142,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button selectDirectoryButton;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button testTweaksButton;
     }
 }
 
