@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace TweakMB2
 {
     partial class Form1
     {
