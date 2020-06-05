@@ -32,11 +32,13 @@
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Spawns", new System.Windows.Forms.TreeNode[] {
             treeNode1});
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Order Stronghold");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Knighthood Orders", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Tweaks", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Reduce upgrade time");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Knighthood Orders", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
             treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tweaks", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode5});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -53,14 +55,16 @@
             treeNode1.Text = "Spawn Rate";
             treeNode2.Name = "Node 1";
             treeNode2.Text = "Spawns";
-            treeNode3.Name = "Node4";
+            treeNode3.Name = "Node2";
             treeNode3.Text = "Order Stronghold";
-            treeNode4.Name = "Node2";
-            treeNode4.Text = "Knighthood Orders";
-            treeNode5.Name = "Node0";
-            treeNode5.Text = "Tweaks";
+            treeNode4.Name = "Node1";
+            treeNode4.Text = "Reduce upgrade time";
+            treeNode5.Name = "Node2";
+            treeNode5.Text = "Knighthood Orders";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Tweaks";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(222, 335);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
