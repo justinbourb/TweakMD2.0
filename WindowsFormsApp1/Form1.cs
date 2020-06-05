@@ -16,6 +16,22 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         //Helper Functions
+        public string multilineToSinglelineFunc(string inputString)
+        {
+            /* Purpose:
+            *  convert multiline string into single line
+            *  and change double space "  " into single " "
+            * Paramaters:
+            *  inputString: a string to convert to single line
+            * Return Value:
+            *  return the modified string
+            */
+            //convert multiline string into single line
+            inputString = inputString.Replace(Environment.NewLine, " ");
+            inputString = inputString.Replace("\r\n", " ");
+            inputString = inputString.Replace("  ", " ");
+            return inputString;
+        }
         public string openFileFunc(string pathToFile)
         {
             /* Purpose:
@@ -66,6 +82,8 @@ namespace WindowsFormsApp1
             if (data.Length != 0)
             {
                 StringBuilder builder = new StringBuilder(data);
+                toSearch = multilineToSinglelineFunc(toSearch);
+                replaceStr = multilineToSinglelineFunc(replaceStr);
                 builder.Replace(toSearch, replaceStr);
                 string tempData = builder.ToString();
                 return tempData;
@@ -197,7 +215,7 @@ namespace WindowsFormsApp1
         private void testTweaksButton_Click(object sender, EventArgs e)
         {
             //test.txt
-            //callAllFileFuncs(modDirectory + "\\test.txt", "Writing text to a file.", "Changing the text of a file.");
+            callAllFileFuncs(modDirectory + "\\test.txt", @"Writing text to a file.", "Changing the text of a file.");
 
         }
     }
