@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{A81C3FCD-6465-4B4B-8C50-88C5AC7DCB9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweakMB2", "WindowsFormsApp1\TweakMB2.csproj", "{A81C3FCD-6465-4B4B-8C50-88C5AC7DCB9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweakMB2Tests", "TweakMB2Tests\TweakMB2Tests.csproj", "{91736A62-B0DC-4513-A561-485C09C11014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TweakMB2Tests", "TweakMB2Tests\TweakMB2Tests.csproj", "{91736A62-B0DC-4513-A561-485C09C11014}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

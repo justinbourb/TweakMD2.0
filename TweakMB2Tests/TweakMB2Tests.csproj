@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WindowsFormsApp1\WindowsFormsApp1.csproj" />
+    <ProjectReference Include="..\WindowsFormsApp1\TweakMB2.csproj" />
   </ItemGroup>
 
 </Project>
